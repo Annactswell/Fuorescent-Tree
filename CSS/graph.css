@@ -11,7 +11,10 @@
 #network {
     width: 1000px;
     height: 1000px;
-    border: 1px solid lightgray;
-    background-color: black;
+    border: 0px transparent;
+    background-color: transparent; /* 设置背景为透明 */
     position: relative;
+    background-image: url('../../Resource/img/background.png'); /* 设置背景图片 */
+    background-size: cover; /* 使背景图片填满整个容器 */
+    background-position: center; /* 将背景图片居中 */
 }
