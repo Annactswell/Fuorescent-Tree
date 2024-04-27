@@ -15,6 +15,7 @@
     <script src="JS/index.js"></script>
 
     <audio id="clickButtonAudio" src="Audio/clickNode.mp3"></audio>
+    <audio id="BGM" src="Audio/A-long-way.mp3"></audio>
 
 </head>
 
@@ -27,5 +28,13 @@
     </div>
 
 </body>
+
+<script>
+
+    let BGM = document.getElementById('BGM')
+    BGM.volume = 0.1;
+    BGM.play();
+
+</script>
 
 </html>
