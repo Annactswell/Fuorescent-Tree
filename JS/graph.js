@@ -1,10 +1,9 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     var audios = {
-        unlock: document.getElementById("unlockNodeAudio"),
-        hover: document.getElementById("hoverNodeAudio"),
+        unlock: document.getElementById("clickNodeAudio"),
+        hover: document.getElementById("clickNodeAudio"),
         click: document.getElementById("clickNodeAudio"),
-        space: document.getElementById("clickSpaceAudio"),
+        space: document.getElementById("clickNodeAudio"),
         current: null
     };
 
@@ -61,15 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
             {from: 22,  to: 222 }
         ]);
 
-        nodes.update([
-            // 明确指定只显示节点1和节点2，其余节点隐藏
-            { id: 1, hidden: false },
-            { id: 2, hidden: false }
-        ]);
-
         nodes.forEach(function(node) {
             if (node.id !== 1 && node.id !== 2) {
                 nodes.update({ id: node.id, hidden: true });
+            } else {
+                nodes.update({ id: node.id, hidden: false });
             }
         });
 
@@ -81,8 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 borderWidth: 0,
                 shadow: {
                     enabled: true,
-                    color: 'rgba(255, 255, 255, 0.5)',
-                    size: 50,
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    size: 70,
                     x: 0,
                     y: 0
                 }
@@ -105,15 +100,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function setupEventListeners() {
         network.on("click", function(params) {
-            if (params.nodes.length === 0) {
-                // playAudio('space');
-                return;
-            }
+            if (params.nodes.length === 0)  return;
+
             var nodeId = params.nodes[0];
             nodeClickState[nodeId] = true;
-            playAudio(nodeClickState[nodeId] ? 'space' : 'click');
+
             updateNodeVisibility(nodeId);
             setNodeStyle(nodeId);
+
+            
+
+            playAudio(nodeClickState[nodeId] ? 'space' : 'click');
+            
+            
 
             if (nodeId == 2) alert("        图论是数学的一个分支，研究图（Graph）的性质和关系的学科。图是由节点（Vertex）和连接这些节点的边（Edge）组成的一种数据结构。\n       图论的研究对象可以是任何由对象之间的关系构成的集合，例如社交网络、电路、通信网络、交通网络等等。\n       图论的基本概念包括：\n       1. 节点（Vertex）：图中的基本元素，也称为顶点或点。\n       2. 边（Edge）：连接图中节点的线段，表示节点之间的关系。边可以是有向的（从一个节点指向另一个节点）或者无向的（没有方向性）。\n       3. 路径（Path）：图中节点的序列，通过边相连接。路径可以是简单路径（节点不重复）或者环路（起点和终点相同）。\n       4. 度（Degree）：节点的度是与该节点相连的边的数量。对于有向图，节点的入度是指指向该节点的边的数量，出度是指从该节点出发的边的数量。\n       5. 连通性（Connectivity）：图中节点之间是否存在路径，以及图的整体结构是否连通。\n       6. 图的类型：根据边的性质和节点之间的连接关系，图可以分为无向图（边没有方向）、有向图（边有方向）和加权图（边有权重）等。\n       7. 图的表示：图可以通过邻接矩阵、邻接表等方式进行表示和存储。\n       图论在计算机科学、网络科学、运筹学、物理学等领域都有广泛的应用，例如在路由算法、社交网络分析、图像处理、组合优化等方面。");
            
@@ -126,28 +125,15 @@ document.addEventListener("DOMContentLoaded", function() {
             if (nodeId == 213) alert("      Bellman-Ford算法是一种用于计算图中单源最短路径的动态规划算法。与Dijkstra算法不同，Bellman-Ford算法可以处理带有负权边的图，并且能够检测到负权环路。\n       算法的基本思想是进行|V|-1轮松弛操作，其中|V|表示图中节点的数量。每轮松弛操作都会遍历图中所有的边，尝试通过每条边更新起点到目标节点的最短距离。\n       在每轮松弛操作中，算法会对每条边进行检查，如果发现通过该边可以获得更短的路径，则更新目标节点的距离。\n       在进行|V|-1轮松弛操作之后，算法会再进行一轮松弛操作来检测是否存在负权环路。如果在这一轮中仍然发现可以通过某条边缩短路径，则说明图中存在负权环路。\n       Bellman-Ford算法的时间复杂度为 O(V*E)，其中 V 表示节点数，E 表示边数。\n       由于算法的时间复杂度较高，通常只在图中包含负权边或需要检测负权环路时使用。对于没有负权边的图，Dijkstra算法通常更加高效。");
 
 
-
         });
 
-        network.on("hoverNode", function(params) {
-            playAudio('hover');
-        });
-
-        network.on("blurNode", function(params) {
-            if (audios.current === audios.hover) {
-                audios.hover.pause();
-                audios.hover.currentTime = 0;
-            }
-        });
     }
 
     function updateNodeVisibility(nodeId) {
         var updateNodes = [];
         var connectedNodes = network.getConnectedNodes(nodeId);
         connectedNodes.forEach(function(id) {
-            if (nodes.get(id).hidden) {
-                updateNodes.push({id: id, hidden: false});
-            }
+            updateNodes.push({id: id, hidden: false});
         });
         nodes.update(updateNodes);
     }
@@ -155,8 +141,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function setNodeStyle(nodeId) {
         var node = nodes.get(nodeId);
         node.color = {
-            background: nodeClickState[nodeId] ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.5)'
+            background: nodeClickState[nodeId] ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.1)'
         };
+        // node.size = 30;
         nodes.update(node);
     }
 

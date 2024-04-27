@@ -14,7 +14,9 @@
     <script src="JS/bubble.js"></script>
     <script src="JS/index.js"></script>
 
-    <audio id="clickButtonAudio" src="Audio/clickNode.mp3"></audio>
+    <audio id="clickButtonAudio" src="Audio/clickButton.mp3"></audio>
+    <audio id="clickNodeAudio"   src="Audio/clickNode.mp3">  </audio>
+    <audio id="backgroundAudio"  src="Audio/A-long-way.mp3"> </audio>
 
 </head>
 
@@ -22,7 +24,8 @@
 
     <div class="button-container">
         <a href="default.html" class="button" target="_blank">预设</a>
-        <a class="button" target="_blank">自定义</a>
+        <a class="button" target="_blank">编辑</a>
+        <a class="button" target="_blank">商店</a>
         <a class="button" target="_blank">退出</a>
     </div>
 
@@ -30,7 +33,7 @@
 
 <script>
 
-    const BGM = new Audio('Audio/A-long-way.mp3');
+    let BGM = document.getElementById('backgroundAudio');
     BGM.volume = 0.1;
     BGM.play();
     BGM.loop = true;
