@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // });
         button.addEventListener("mousedown", function() {
             audio.currentTime = 0; // 将音频时间设置为0，以便每次点击都能从头开始播放
+            audio.volume = 0.2;
             audio.play(); // 播放音频
         });
     });
