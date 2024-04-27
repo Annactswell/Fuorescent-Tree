@@ -15,7 +15,6 @@
     <script src="JS/index.js"></script>
 
     <audio id="clickButtonAudio" src="Audio/clickNode.mp3"></audio>
-    <audio id="BGM" src="Audio/A-long-way.mp3"></audio>
 
 </head>
 
@@ -31,9 +30,10 @@
 
 <script>
 
-    let BGM = document.getElementById('BGM')
+    const BGM = new Audio('Audio/A-long-way.mp3');
     BGM.volume = 0.1;
     BGM.play();
+    BGM.loop = true;
 
 </script>
 
