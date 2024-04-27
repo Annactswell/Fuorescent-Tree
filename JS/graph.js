@@ -160,5 +160,8 @@ document.addEventListener("DOMContentLoaded", function() {
         nodes.update(node);
     }
 
+
+
     initializeNetwork();
+
 });
