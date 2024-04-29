@@ -1,0 +1,98 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative; /* 相对定位，为了固定输入框的位置 */
+}
+
+.dialog-box {
+    background-color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.user-message {
+    color: #00ff00;
+}
+
+.assistant-message {
+    color: #ff00ff;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.input-button {
+    display: flex;
+    justify-content: space-between; /* 将按钮分开 */
+    margin-bottom: 10px; /* 增加下外边距 */
+}
+
+.input-container {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    position: fixed; /* 固定定位，保持在页面底部 */
+    bottom: 20px; /* 距离底部的距离 */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 水平居中 */
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px; /* 修改内边距 */
+    background-color: #222;
+}
+
+#userInput {
+    flex: 1; /* 让输入框占据剩余空间 */
+    border: none;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px; /* 增加内边距 */
+    margin-right: 10px; /* 增加右外边距 */
+    width: 500px; /* 设置宽度 */
+    height: 20px; /* 设置高度 */
+}
+
+#sendButton {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 13px; /* 增大按钮的内边距 */
+    cursor: pointer;
+    font-size: 18px; /* 调整字号 */
+}
+
+.user-message,
+.assistant-message {
+    opacity: 0; /* 初始状态为隐藏 */
+    transition: opacity 0.3s; /* 添加渐变动画 */
+}
+
+#prevButton,
+#nextButton {
+    background-color: #333; /* 暗色背景 */
+    color: #fff; /* 白色文字 */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 按钮颜色变化的过渡效果 */
+}
+
+#prevButton:hover,
+#nextButton:hover {
+    background-color: #555; /* 悬停时稍微变亮一点 */
+}
+

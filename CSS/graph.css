@@ -1,0 +1,85 @@
+
+
+/* body {
+    height: 100vh;
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+} */
+
+#network {
+    width: 1000px;
+    height: 1000px;
+    border: 0px transparent;
+    background-color: transparent; /* 设置背景为透明 */
+    position: relative;
+}
+
+/* 修改节点样式 */
+.vis-network .node {
+    background: linear-gradient(45deg, #000, #fff); /* 黑白渐变背景 */
+    border: 2px solid #000; /* 黑色边框 */
+    color: #000; /* 黑色文字 */
+}
+
+/* 修改节点字体颜色 */
+.vis-network .node * {
+    color: #000 !important; /* 强制设为黑色 */
+}
+
+/* 修改选中节点样式 */
+.vis-network .node.selected {
+    background: linear-gradient(45deg, #fff, #000); /* 黑白渐变背景（反向） */
+    border-color: #fff; /* 白色边框 */
+    color: #fff; /* 白色文字 */
+}
+
+/* .dialog-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 9999; /* 确保对话框在最顶层
+}
+
+.hidden {
+    display: none;
+} */
+
+/* .dialog-box {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dialog-box .dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-box .dialog-content p {
+    margin-bottom: 10px;
+}
+
+.dialog-box .dialog-content button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.dialog-box .dialog-content button:hover {
+    background-color: #0056b3;
+} */
+
+

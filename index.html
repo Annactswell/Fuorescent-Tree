@@ -10,24 +10,32 @@
 
     <link rel="stylesheet" href="CSS/bubble.css">
     <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/main-menu.css">
 
     <script src="JS/bubble.js"></script>
-    <script src="JS/index.js"></script>
+    <script src="JS/button.js"></script>
 
     <audio id="clickButtonAudio" src="Audio/clickButton.mp3"></audio>
-    <audio id="clickNodeAudio"   src="Audio/clickNode.mp3">  </audio>
     <audio id="backgroundAudio"  src="Audio/A-long-way.mp3"> </audio>
 
 </head>
 
 <body>
 
-    <div class="button-container">
+    <!-- <div class="button-container">
         <a href="default.html" class="button" target="_blank">预设</a>
-        <a class="button" target="_blank">编辑</a>
-        <a class="button" target="_blank">商店</a>
+        <a class="button" target="_blank">创造</a>
+        <a class="button" target="_blank">库</a>
         <a class="button" target="_blank">退出</a>
-    </div>
+    </div> -->
+
+    <ul class="main-menu-ul">
+        <li class="main-menu-li"><a href="default.html" class="button" target="_blank" data-text="&nbsp;Default&nbsp;" >&nbsp;Default&nbsp;</a></li>
+        <li class="main-menu-li"><a href="library.html" class="button" target="_blank" data-text="&nbsp;Library&nbsp;">&nbsp;Library&nbsp;</a></li>
+        <li class="main-menu-li"><a class="button" target="_blank" data-text="&nbsp;Create&nbsp;">&nbsp;Create&nbsp;</a></li>
+        <li class="main-menu-li"><a href="study.html" class="button" target="_blank" data-text="&nbsp;About&nbsp;">&nbsp;About&nbsp;</a></li>
+        <li class="main-menu-li"><a class="button" target="_blank" data-text="&nbsp;Exit&nbsp;">&nbsp;Exit&nbsp;</a></li>
+    </ul>
 
 </body>
 
